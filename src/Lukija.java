@@ -20,7 +20,6 @@ public class Lukija {
             x[i] = Float.parseFloat(values[0]);
             y[i] = Float.parseFloat(values[1]);
             System.out.print(x[i] + " , " + y[i] + "\n");
-
          }
 
       } catch (IOException e) {
@@ -37,8 +36,7 @@ public class Lukija {
    }
 
    public void writeOutput(ArrayList<Node> list, String fileName) {
-
-
+      
       try {
          BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
          for (Node n : list) {
@@ -48,7 +46,6 @@ public class Lukija {
             bw.newLine();
          }
          bw.close();
-
       } catch (IOException e) {
          System.err.format("IOException: %s%n", e);
       }

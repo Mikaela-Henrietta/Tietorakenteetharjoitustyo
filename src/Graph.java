@@ -30,7 +30,6 @@ public class Graph {
                   lähinEtäisyys = vertailtavaEtäisyys;
                } else if (toiseksiLähin == null || vertailtavaEtäisyys < toiseksiLähinEtäisyys) {
                   toiseksiLähin = vertices.get(j);
-                  ;
                   toiseksiLähinEtäisyys = vertailtavaEtäisyys;
                }
             }

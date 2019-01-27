@@ -19,7 +19,7 @@ public class Lukija {
             String[] values = line.split(",");
             x[i] = Float.parseFloat(values[0]);
             y[i] = Float.parseFloat(values[1]);
-            System.out.print(x[i] + " , " + y[i] + "\n");
+            //System.out.print(x[i] + " , " + y[i] + "\n");
          }
 
       } catch (IOException e) {
@@ -36,13 +36,27 @@ public class Lukija {
    }
 
    public void writeOutput(ArrayList<Node> list, String fileName) {
-      
+
       try {
          BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
          for (Node n : list) {
             bw.write(Float.toString(n.getX()));
             bw.write(",");
             bw.write(Float.toString(n.getY()));
+            bw.newLine();
+         }
+         bw.close();
+      } catch (IOException e) {
+         System.err.format("IOException: %s%n", e);
+      }
+      System.out.println("Tiedosto kirjoitettu");
+   }
+   public void writeStringOutput(ArrayList<String> list, String fileName) {
+
+      try {
+         BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+         for (String n : list) {
+            bw.write(n);
             bw.newLine();
          }
          bw.close();

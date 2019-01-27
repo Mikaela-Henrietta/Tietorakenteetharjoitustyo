@@ -15,7 +15,7 @@ public class Node {
    public Node(float x, float y) {
       this.x = x;
       this.y = y;
-      this.edges = new LinkedList<>();
+      this.edges = new LinkedList<Node>();
       this.visited = false;
       this.inDegrees = 0;
    }
@@ -53,7 +53,8 @@ public class Node {
    }
 
    public boolean isVisited() {
-      return visited;
+      if (visited) return true;
+      else return false;
    }
 
    public void setVisited(boolean visited) {

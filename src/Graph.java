@@ -10,7 +10,7 @@ public class Graph {
    private List<Node> vertices;
 
    public Graph() {
-      this.vertices = new ArrayList<>();
+      this.vertices = new ArrayList<Node>();
    }
    public void addNode(float x, float y) {
       vertices.add(new Node(x, y));
@@ -20,17 +20,10 @@ public class Graph {
       for (int i = 0; i < vertices.size(); i++) {
          Node item = vertices.get(i);
          item.clearEdges();
-         Map<Float, Node> distances = new TreeMap<>(
-               new Comparator<Float>() {
-                  @Override
-                  public int compare(Float o1, Float o2) {
-                     return o1.compareTo(o2);
-                  }
-               }
-         );
-         for (int j = 0; j < vertices.size(); j++) {
-            if (vertices.get(j) != vertices.get(i)) {
-               distances.put(item.distance(vertices.get(j)), vertices.get(j));
+         Map<Float, Node> distances = new TreeMap<Float, Node>((o1, o2) -> o1.compareTo(o2));
+         for (Node vertice : vertices) {
+            if (vertice != vertices.get(i)) {
+               distances.put(item.distance(vertice), vertice);
             }
          }
          int k = 0;
@@ -51,8 +44,8 @@ public class Graph {
    }
 
    public void removeVertice(Node n) {
-      for (int i = 0; i < vertices.size(); i++) {
-         this.vertices.get(i).removeEdge(n);
+      for (Node vertice : vertices) {
+         vertice.removeEdge(n);
       }
       this.vertices.remove(n);
    }
@@ -91,7 +84,7 @@ public class Graph {
       return iterated;
    }
    //recursive part
-   private void depthFirstSearchRec (Node v, ArrayList iterated) {
+   private void depthFirstSearchRec (Node v, ArrayList<Node> iterated) {
       v.setVisited(true);
       iterated.add(v);
       for (int i = 0; i < v.getEdges().size(); i++) {
@@ -112,7 +105,7 @@ public class Graph {
 
    public boolean isConnected() {
       clearVisitState();
-      ArrayList<Node> iterated = new ArrayList<>();
+      ArrayList<Node> iterated = new ArrayList<Node>();
       depthFirstSearchRec(this.vertices.get(0), iterated);
       boolean isConnected = true;
       for(Node n : this.vertices) {

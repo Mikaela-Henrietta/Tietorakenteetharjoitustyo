@@ -49,7 +49,7 @@ public class Lukija {
       } catch (IOException e) {
          System.err.format("IOException: %s%n", e);
       }
-      System.out.println("Tiedosto kirjoitettu");
+      System.out.println("Tiedosto kirjoitettu: " + fileName);
    }
    public void writeStringOutput(ArrayList<String> list, String fileName) {
 
@@ -63,6 +63,6 @@ public class Lukija {
       } catch (IOException e) {
          System.err.format("IOException: %s%n", e);
       }
-      System.out.println("Tiedosto kirjoitettu");
+      System.out.println("Tiedosto kirjoitettu: " + fileName);
    }
 }

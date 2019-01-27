@@ -44,7 +44,7 @@ public class T2018 {
          graph.findClosest(j);
          j++;
       }
-      System.out.println("is connected " + graph.isConnected() + " with " + j + " closest");
+      System.out.println("Graph is connected: " + graph.isConnected() + " with " + j + " closest");
       ArrayList<Node> comp = graph.depthFirstSearch();
       ht.writeOutput(comp,  "COMP.txt");
    }

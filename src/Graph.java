@@ -37,6 +37,7 @@ public class Graph {
          for (Node n: distances.values()) {
             if(k < addClosestToEdges) {
                item.addEdge(n);
+               n.addIndegree();
             }
             k++;
          }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * mikaela.lindfors@tuni.fi
  * */
 
-public class Main {
+public class T2018 {
 
    public static void main(String[] args) {
       // 1. Graafi luodaan lukemalla esimerkkitiedostosta pisteet.
